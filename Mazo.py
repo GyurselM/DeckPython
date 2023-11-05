@@ -5,11 +5,13 @@ supabase = create_client("https://ktehsxolhqumtnvpqoce.supabase.co","eyJhbGciOiJ
 
 def CrearDatos():
     while True:
+        #Try except que comprueba es los valores este bien puestos
         try:
+            # Variables que introduce el usuario
             deck = input("Introduce el nombre del mazo: ")
             character = input("Selecciona el personaje \n 1 \n 2 \n -> ")
             charInt = int(character)
-            #comprobacion de nombre mazo
+            # Comprobacion de mazo que no este vacio y el id sea bien puesto
             if deck != "" and charInt != None or charInt > 0:
                 prueba = {"de_name":deck,"de_character_id":charInt}
                 supabase.table('decks').insert(prueba).execute()
