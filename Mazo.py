@@ -49,10 +49,17 @@ def ModificarDatos():
         bbddJson = json.loads(bbdd.model_dump_json())
         # try comprobacion de que los datos esten bien puestos
         try:
+            #Comprobacion de los que pone el usuario y lo que esta en BBDD que es gracias a este "bbddJson["data"][0]["de_name"]"
+            """
+            bbddJson["data"][0]["de_name"]- son en total tres listas
+            en la primera accedemos en la lista data en la posicion 0 
+            y ponemos el campo que necesitamos que compruebe
+            """
             if modify == bbddJson["data"][0]["de_name"]:
                 
                 print(bbddJson["data"][0]["de_name"])
                 while bucle2:
+                    #Segundo bucle para hacer un menu sobre el campo en concreto que queire modificar en la BBDD
                     modifyNew = input("Eleige lo que quieres cambiar: \n 1 - Nombre mazo \n 2 - Id character \n -> ")
                     try:
                         if int(modifyNew) == 1:
