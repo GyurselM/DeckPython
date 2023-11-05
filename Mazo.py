@@ -23,7 +23,9 @@ def CrearDatos():
             print("Ponga solo letras en el nombre del mazo \ En personaje ponga lo que esta indicado")            
     
 def MostrarDatos():
+    # cogemos de BBDD para mostrar y los guardamos en una variable
     datos = supabase.table('decks').select("*").execute()
+    # Con dos for entramos dentro de la lista y los convertimos en un Json para que se vea visualmente vien
     for dato in datos:
         for x in dato:
             deck = json.dumps(x, indent = 2)
