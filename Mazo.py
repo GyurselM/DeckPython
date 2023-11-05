@@ -110,6 +110,7 @@ def DeleteDatos():
 def Menu():    
     while True:
         try:
+            #Try que se comprueba que se ponga un numero y si se pone cualquier cosa salta error
             #Menu donde se puede acceder a cada funcion que se a creado 
             menu = input("MENU: \n 1 - Crear datos en mazo \n 2 - Mostrar datos en mazo \n 3 - Modificar datos de mazo \n 4 - Borrar datos de mazo \n -> ")
             menuInt = int(menu)
