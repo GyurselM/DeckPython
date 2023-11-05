@@ -83,10 +83,23 @@ def ModificarDatos():
 def DeleteDatos():
     bucle = True
     while bucle:
+        # Solicitar datos del usuario
         delete = input("Ponga el nombrte del mazo que quiere borrar: ")
         bbdd = supabase.table('decks').select("de_name").eq("de_name", delete).execute()
-        bbddJson = json.loads(bbdd.model_dump_json())           
+        """
+        Desde la BBDD llamamos lo que nos interesa y los guardamos en una 
+        variable bbdd. Despues creamos una variable bbddJson y convertimos Json
+        la variable anterior bbdd esto nos servira mas adelante para acceder y comprobar datos
+        """
+        bbddJson = json.loads(bbdd.model_dump_json())
+        # try comprobacion de que los datos esten bien puestos
         try:
+            #Comprobacion de los que pone el usuario y lo que esta en BBDD que es gracias a este "bbddJson["data"][0]["de_name"]"
+            """
+            bbddJson["data"][0]["de_name"]- son en total tres listas
+            en la primera accedemos en la lista data en la posicion 0 
+            y ponemos el campo que necesitamos que compruebe
+            """
             if delete == bbddJson["data"][0]["de_name"]:
                 supabase.table('decks').delete().eq("de_name",delete).execute()
                 bucle = False
