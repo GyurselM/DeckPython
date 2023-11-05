@@ -38,9 +38,16 @@ def ModificarDatos():
     bucle = True
     bucle2 = True
     while bucle:
+        # Solicitar datos del usuario
         modify = input("Ponga el nombre del mazo que quiere cambiar: ")
         bbdd = supabase.table('decks').select("de_name").eq("de_name", modify).execute()
+        """
+        Desde la BBDD llamamos lo que nos interesa y los guardamos en una 
+        variable bbdd. Despues creamos una variable bbddJson y convertimos Json
+        la variable anterior bbdd esto nos servira mas adelante para acceder y comprobar datos
+        """
         bbddJson = json.loads(bbdd.model_dump_json())
+        # try comprobacion de que los datos esten bien puestos
         try:
             if modify == bbddJson["data"][0]["de_name"]:
                 
