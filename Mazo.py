@@ -63,11 +63,13 @@ def ModificarDatos():
                     modifyNew = input("Eleige lo que quieres cambiar: \n 1 - Nombre mazo \n 2 - Id character \n -> ")
                     try:
                         if int(modifyNew) == 1:
+                            #Nuevos datos para sustituir sobre la BBDD 
                             nameDeck = input("Pon el nuevo nombre al mazo: ")
                             supabase.table('decks').update({"de_name": nameDeck}).eq("de_name",modify).execute()
                             bucle2 = False
                             bucle = False 
                         elif int(modifyNew) == 2:
+                            #Nuevos datos para sustituir sobre la BBDD
                             idCharacter = input("Pon el nuevo id del mazo al personaje: ")
                             supabase.table('decks').update({"de_character_id": idCharacter}).eq("de_name",modify).execute()
                             bucle2 = False
