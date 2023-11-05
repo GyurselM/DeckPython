@@ -98,7 +98,7 @@ def DeleteDatos():
             """
             bbddJson["data"][0]["de_name"]- son en total tres listas
             en la primera accedemos en la lista data en la posicion 0 
-            y ponemos el campo que necesitamos que compruebe
+            y ponemos el campo que necesitamos que compruebe 
             """
             if delete == bbddJson["data"][0]["de_name"]:
                 supabase.table('decks').delete().eq("de_name",delete).execute()
@@ -110,6 +110,7 @@ def DeleteDatos():
 def Menu():    
     while True:
         try:
+            #Menu donde se puede acceder a cada funcion que se a creado 
             menu = input("MENU: \n 1 - Crear datos en mazo \n 2 - Mostrar datos en mazo \n 3 - Modificar datos de mazo \n 4 - Borrar datos de mazo \n -> ")
             menuInt = int(menu)
             if menuInt == 1:
