@@ -1,2 +1,0 @@
-# DeckPython
-Mazo de TFG
